@@ -31,8 +31,59 @@ nav {
 
 }
 .TodoList h2 {font-size: 1.3em; margin: 1em 0.5em;}
-ul {font-size: 1.1em;}
-li {padding: 0.3em 0;}
+.tasks {
+    list-style: none;
+    padding-left: 0;
+    font-size: 1.1em;
+}
+.customBox {
+    display: flex;
+    align-items: center;
+    position: relative;
+    padding-left: 2.5em;
+    cursor: pointer;
+    user-select: none;
+    font-size: 16px;
+}
+.customBox input {
+    position: absolute;
+    opacity: 0;
+    height: 0;
+    width: 0;
+}
+.customBox .checkmark {
+    position: absolute;
+    left: 0;
+    top: 2px;
+    height: 20px;
+    width: 20px;
+    background-color: #ffffffc9;
+    border-radius: 10px;
+    transition: background-color 0.2s;
+}
+.customBox input:checked ~ .checkmark {
+    background-color: #58967b;
+}
+.customBox .checkmark::after {
+    content: "";
+    position: absolute;
+    display: none;
+    left: 6px;
+    top: 2px;
+    width: 5px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+.customBox input:checked ~ .checkmark::after {
+    display: block;
+}
+.customBox input:checked ~ .taskText {
+    text-decoration: line-through;
+    color: #58967b89;
+}
+
 
 .AddTask {
     grid-row: 3;
