@@ -1,0 +1,16 @@
+{
+  "name": "todolist",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "live-server ./dist"
+  },
+  "keywords": [],
+  "author": "Angelica Adolfsson",
+  "license": "ISC",
+  "description": "Todo list using typescript",
+  "devDependencies": {
+    "live-server": "^1.2.2",
+    "typescript": "^5.8.3"
+  }
+}
