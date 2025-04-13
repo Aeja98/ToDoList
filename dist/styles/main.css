@@ -1,0 +1,78 @@
+@font-face {
+    font-family: Gabriela;
+     src: url(Gabriela/Gabriela-Regular.ttf) format('truetype');
+}
+@font-face {
+     font-family: Raleway;
+     src: url(Raleway/Raleway-Regular.ttf) format('truetype');
+}
+
+body {
+    background-color: #966958;
+    font-family: Raleway, sans-serif;
+    color: black;
+    display: grid;
+    grid-template-columns: 1;
+    grid-template-rows: auto;
+    margin: 0;
+    row-gap: 0.7em;
+}
+nav {
+    padding: 3% 5%;
+    grid-row: 1;
+    background-color: #ffffd3;
+    font-family: Gabriela, serif;
+}
+
+.TodoList {
+    grid-row: 2;
+    background-color: #c2f4d5;
+    padding: 3%;
+
+}
+.TodoList h2 {font-size: 1.3em; margin: 1em 0.5em;}
+ul {font-size: 1.1em;}
+li {padding: 0.3em 0;}
+
+.AddTask {
+    grid-row: 3;
+    background-color: #9de6ea;
+    padding: 3%;
+    font-family: Raleway,sans-serif;
+}
+.AddTask h2 {font-size: 1.3em; margin: 1em 0.5em;}
+label, input {margin: 1em 1em; font-size: 0.9em;}
+form p {margin: 0 1.3em; font-size: 0.7em;}
+form input {width: 200px; height: 20px;}
+form input:invalid + span::after {
+    content: "✖";
+}
+form input:valid + span::after {
+    content: "✓";
+}
+input::placeholder {font-family: Raleway, sans-serif; padding-left: 4px;}
+form #submitBtn, form #resetBtn {
+    background-color: #0f5155;
+    color: white;
+    border: none;
+    border-radius: 15px;
+    width: 10em;
+    height: auto;
+    padding: 0.5em 1em;
+    margin: 1em;
+    font-size: 0.7em;
+    cursor: pointer;
+}
+#submitBtn:hover, #resetBtn:hover {background-color:#683b2a;}
+
+footer {
+    grid-row: 4;
+    font-family: Gabriela, serif;
+    background-color: #ffffd3;
+    padding: 3% 5%;
+}
+footer h4 {font-size: 0.9em;}
+footer p {
+    font-size: 0.7em;
+}
+footer #copyright{font-size: 0.6em;}
