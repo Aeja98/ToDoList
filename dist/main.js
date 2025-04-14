@@ -31,14 +31,14 @@ class TodoList {
         this.saveToLocalStorage();
         return true;
     }
-    //method to mark todos as completed
+    //method to mark tasks as completed
     markTodoCompleted(todoIndex) {
         if (this.todos[todoIndex]) {
             this.todos[todoIndex].completed = !this.todos[todoIndex].completed;
             this.saveToLocalStorage();
         }
     }
-    //method to return full todo array
+    //method to return full array
     getTodos() {
         return this.todos;
     }
@@ -64,7 +64,6 @@ form.addEventListener("submit", (e) => {
     e.preventDefault();
     const task = taskInput.value.trim();
     const priority = parseInt(priorityInput.value);
-    console.log("Submitting:", { task, priority });
     if (todoList.addTodo(task, priority)) {
         console.log("Todo added!");
         renderTodos();
@@ -75,15 +74,16 @@ form.addEventListener("submit", (e) => {
         alert("Please enter a task and choose a priority between 1 and 3.");
     }
 });
-//Display added tasks to the list
+//Display tasks to the list
 function renderTodos() {
     taskList.innerHTML = "";
-    //sorts tasks by priority & map each w original index
+    //return full array of tasks, loops through array
+    //then sorts tasks by priority & map each one w original index (which keeps track of the checkboxes & amkes sure the correct one is marked)
     const todosWithIndex = todoList.getTodos().map((todo, i) => (Object.assign(Object.assign({}, todo), { originalIndex: i })));
     const sortedTodos = todosWithIndex.sort((a, b) => a.priority - b.priority);
     sortedTodos.forEach((todo) => {
         const li = document.createElement("li");
-        //add customized checkbox displayed next to task & format list element
+        //add customized checkbox & format li element
         li.innerHTML = `
             <label class="customBox">
                 <input type="checkbox" data-index="${todo.originalIndex}" ${todo.completed ? "checked" : ""}>
@@ -94,9 +94,10 @@ function renderTodos() {
         taskList.appendChild(li);
     });
 }
-//Event listener when checkbox is clicked -> mark complete (also allows unchecking)
+//Event listener -> when checkbox is clicked => mark complete (also allows unchecking)
 taskList.addEventListener("change", (e) => {
     const target = e.target;
+    //makes sure the only thing that will be able to mark task as done is checkbox, not clicking somewhere else
     if (target.type === "checkbox") {
         const index = parseInt(target.dataset.index);
         todoList.markTodoCompleted(index);
