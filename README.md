@@ -39,4 +39,4 @@ TodoList/
 ## Webblänk
 
 Publicerad webbsida
-🔗 **[Live Site on Netlify](https://priotodolist.netlify.app/)**  
+**[Netlify](https://priotodolist.netlify.app/)**  
