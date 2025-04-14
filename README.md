@@ -8,8 +8,6 @@
 - Automatisk sortering av uppgifternär viktigast hamnar högst upp
 - Uppgifter sparas i localstorage och kvarstår mellan sessioner
 
----
-
 ## Filstruktur
 ```
 TodoList/ 
@@ -34,9 +32,7 @@ TodoList/
 ├──tsconfig.json 
 └── README.md
 ```
----
-
-## Webblänk
+### Webblänk
 
 Publicerad webbsida
 **[Netlify](https://priotodolist.netlify.app/)**  
